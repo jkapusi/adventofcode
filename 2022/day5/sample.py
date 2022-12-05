@@ -13,9 +13,16 @@ s = sample
 for line in lines:
     # print(f"$ {line}")
     _, nr, _, f, _, t = line.split(" ")
-    for i in range(int(nr)):
-        s[int(t)].append(s[int(f)].pop())
-        # print(nr,f,t)
+    print(nr,f,t, s[int(f)], s[int(t)])
+
+    pos = len(s[int(f)]) - int(nr)
+    s[int(t)] += s[int(f)][pos:]
+    del(s[int(f)][pos:])
+
+    print(nr,f,t, s[int(f)], s[int(t)], pos)
+    # for i in range(int(nr)):
+    #     s[int(t)].append(s[int(f)].pop())
+    #     # print(nr,f,t)
 
 sol = ""
 for c in s:
